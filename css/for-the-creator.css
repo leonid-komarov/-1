@@ -1,0 +1,647 @@
+.about-project {
+    padding: 120px 20px 50px;
+}
+
+.about-project__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-project__title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: #da7510;
+}
+
+.about-project__content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.content-section {
+    margin: 40px 0;
+    position: relative;
+    border-radius: 20px;
+    background: rgba(26, 34, 56, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border: 1px solid rgba(218, 117, 16, 0.1);
+}
+
+.content-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(218, 117, 16, 0.1), rgba(26, 34, 56, 0.1));
+    z-index: -1;
+}
+
+.intro-section {
+    text-align: center;
+    font-size: 26px;
+    line-height: 1.6;
+    padding: 60px 40px;
+    background: rgba(26, 34, 56, 0.5);
+    border: none;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.features-grid::after {
+    content: '';
+    grid-column: 1 / -1;
+}
+
+.feature-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 350px;
+}
+
+.feature-card {
+    background: rgba(26, 34, 56, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    border: 1px solid rgba(218, 117, 16, 0.2);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #da7510;
+}
+
+.why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.why-us-card {
+    background: rgba(26, 34, 56, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(218, 117, 16, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.why-us-card p {
+    font-size: 22px;
+    line-height: 1.4;
+    color: #FFFFF0;
+    margin: 0;
+}
+
+/* Стили для последних двух карточек */
+.why-us-card:nth-last-child(2),
+.why-us-card:last-child {
+    transform: translateX(50%);
+}
+
+.why-us-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #da7510;
+}
+
+/* Убираем специальные стили для последних карточек */
+.why-us-grid::after {
+    content: none;
+}
+
+/* Стили для заголовков */
+.section-title {
+    color: #da7510;
+    font-size: 32px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background: #da7510;
+}
+
+.section-subtitle {
+    color: #da7510;
+    font-size: 26px;
+    margin: 30px 0 20px;
+    font-weight: 600;
+}
+
+/* Стили для фиксированной кнопки */
+.fixed-cta {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 1000;
+}
+
+.fixed-cta .cta-button {
+    padding: 18px 35px;
+    font-size: 18px;
+    font-weight: 600;
+    background: #da7510;
+    color: #FFFFF0;
+    border: none;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(218, 117, 16, 0.3);
+}
+
+/* Медиа-запросы */
+@media (max-width: 1024px) {
+    .why-us-grid {
+        grid-template-columns: repeat(2, 300px);
+    }
+    
+    .why-us-card:nth-last-child(2),
+    .why-us-card:last-child {
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid,
+    .why-us-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card:last-child:nth-child(odd) {
+        max-width: 100%;
+    }
+
+    .intro-section {
+        font-size: 20px;
+        padding: 30px 20px;
+    }
+
+    .content-section {
+        padding: 30px 20px;
+    }
+
+    .fixed-cta {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .fixed-cta .cta-button {
+        padding: 15px 30px;
+        font-size: 16px;
+    }
+
+    .why-us-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Сбрасываем стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Базовые стили */
+html, body {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(135deg, #1A2238 0%, #151515 100%) fixed;
+    font-size: 22px;
+    font-weight: 400;
+    color: #FFFFF0;
+    font-family: "Roboto", sans-serif;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(circle at top right, rgba(218, 117, 16, 0.1), transparent 60%),
+                radial-gradient(circle at bottom left, rgba(26, 34, 56, 0.2), transparent 60%);
+}
+
+/* Стили для header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #1A2238;
+    box-shadow: 0 3px 6px #da7510;
+    z-index: 999;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header_inner {
+    height: 70px;
+    position: relative;
+}
+
+/* Стили для меню */
+.menu {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Стили для логотипа */
+.logo_div {
+    position: absolute;
+    left: -150px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .5s;
+}
+
+.logo_div:hover {
+    transform: translateY(-48%);
+}
+
+/* Стили для списка меню */
+.menu__list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    position: relative;
+}
+
+.menu__list > li {
+    position: relative;
+    margin: 0 20px;
+}
+
+/* Стили для выпадающего меню */
+.menu__ul__list1 {
+    min-width: 200px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1A2238;
+    list-style: none;
+    transform-origin: top;
+    transform: rotateX(-90deg);
+    transition: all 1.2s ease;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.menu__ul__list1 .menu__ul__list1 {
+    top: 0;
+    left: 100%;
+    transform-origin: left;
+}
+
+.menu__list li:hover > .menu__ul__list1 {
+    transform: rotateX(0deg);
+    visibility: visible;
+    opacity: 1;
+    box-shadow: 0 3px 6px #da7510;
+}
+
+/* Добавляем специальные стили для меню "Лаборатория №1 для" */
+.class2 {
+    left: 50%; /* Центрируем относительно родителя */
+    transform-origin: top center; /* Меняем точку трансформации */
+    transform: rotateX(-90deg) translateX(-50%); /* Добавляем смещение для центрирования */
+}
+
+/* Обновляем стили для hover состояния */
+.menu__list li:hover > .class2 {
+    transform: rotateX(0deg) translateX(-50%); /* Сохраняем центрирование при появлении */
+    visibility: visible;
+    opacity: 1;
+    box-shadow: 0 3px 6px #da7510;
+}
+
+/* Стили для ссылок в основном меню */
+.menu__list-link {
+    color: #FFFFF0;
+    transition: all 0.3s ease;
+    display: block;
+    transform: translateX(0);
+    padding: 15px 20px;
+}
+
+/* Эффекты при наведении на пункты основного меню */
+.menu__list-item:hover > .menu__list-link {
+    color: #da7510;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+}
+
+/* Обновляем стили для ссылок в выпадающем меню */
+.menu__ul__list1 a {
+    padding: 10px 20px;
+    background-color: #1A2238;
+    color: #da7510;
+    transition: all 0.3s ease;
+    display: block;
+    transform: translateX(0);
+}
+
+/* Эффекты при наведении на пункты выпадающего меню */
+.menu__ul__list1 li:hover > a {
+    color: #FFFFF0;
+    background-color: #da7510;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+}
+
+/* Обновляем стили footer */
+.footer {
+    background-color: #151515;
+    padding: 10px 0 0px;
+    margin-top: auto;
+}
+
+.footer__menu {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer__menu-title {
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+
+.footer__menu-item + .footer__menu-item {
+    padding-top: 5px;
+    display: flex;
+}
+
+.footer__menu-link {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer__menu-link:hover {
+    color: #da7510;
+}
+
+/* Обновляем стили для социальных иконок */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 15px;
+}
+
+.social-icons .footer__menu-link {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.social-icons .footer__menu-link:hover {
+    transform: scale(1.1);
+}
+
+/* Удаляем старые стили */
+.img {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 5px;
+    list-style-type: none;
+}
+
+.img .footer__menu-item {
+    cursor: pointer;
+}
+
+.img .footer__menu-item:hover {
+    transform: scale(1.1);
+}
+
+.footer__copy {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.copy__nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.copi__nav-item {
+    display: flex;
+    justify-content: center;
+}
+
+/* Общие стили */
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+/* Обновляем стили для карусели */
+.carousel-section {
+    padding: 0; /* Убираем padding */
+    background: rgba(26, 34, 56, 0.3);
+    backdrop-filter: blur(5px);
+    margin-top: auto;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    overflow: hidden; /* Предотвращаем горизонтальный скролл */
+    position: relative;
+    z-index: 1;
+}
+
+.swiper {
+    width: 100%;
+    padding: 0;
+}
+
+.swiper-slide {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+/* Позиционируем стрелки с учетом отсутствия полей */
+.swiper-button-prev {
+    left: 5px;
+}
+
+.swiper-button-next {
+    right: 5px;
+}
+
+/* Убираем фон и padding у изображений */
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    background-color: transparent; /* Убираем фон */
+    padding: 0; /* Убираем padding */
+}
+
+.carousel-link {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.swiper-slide:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(218, 117, 16, 0.5);
+}
+
+/* Стилизация кнопок навигации */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #da7510;
+}
+
+.swiper-pagination-bullet {
+    background: #da7510;
+}
+
+.swiper-pagination-bullet-active {
+    background: #FFFFF0;
+}
+
+/* Анимация появления элементов */
+.about-project__content,
+.carousel-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.about-project__content.active,
+.carousel-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Анимация при наведении на карточки в карусели */
+.carousel-link.hover img {
+    transform: scale(1.1);
+}
+
+/* Стили для кнопок */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.cta-button {
+    padding: 20px 40px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #da7510;
+    color: #FFFFF0;
+    border: 2px solid #da7510;
+}
+
+.cta-button:hover {
+    background-color: #FFFFF0;
+    color: #da7510;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(218, 117, 16, 0.3);
+}
+
+/* Стили для списков в about-project__text */
+.about-project__text ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.about-project__text li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.about-project__text li::before {
+    content: "•";
+    color: #da7510;
+    position: absolute;
+    left: 0;
+    font-size: 24px;
+    line-height: 1;
+}
+
+/* Добавляем стили для выделения главных слов */
+.highlight {
+    display: block;
+    color: #da7510;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.feature-card p,
+.why-us-card p {
+    color: rgba(255, 255, 240, 0.9);
+    font-size: 18px;
+    line-height: 1.5;
+}

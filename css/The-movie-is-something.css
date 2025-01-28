@@ -1,0 +1,345 @@
+html {
+    box-sizing: border-box; /*размер коробки: окантовка коробки; (задает более современные настройки для блоков вместе с box-sizing: inherit;) */
+}
+
+*, *::after, *::before {
+    box-sizing: inherit; /* размер коробки: наследовать; (задает более современные настройки для блоков вместе с box-sizing: border-box; чтобы бралось значение от материнского значения) */
+    margin: 0; /*делается чтобы скинуть все настроики стилей у браузеров паденги маржалы..*/
+    padding: 0; /*делается чтобы скинуть все настроики стилей у браузеров паденги маржалы..*/
+} 
+html,body{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+}
+
+body {
+    
+    height: 100%; /*высота*/
+    background: linear-gradient(#1A2238, 30%,#151515) no-repeat; /*фон: линейно-градиентный*/
+    
+    font-size: 22px; /*размер шрифта:*/
+    font-weight: 400; /*вес шрифта:*/
+    color: #FFFFF0;
+    font-family: "Roboto", sans-serif; /*семейство шрифтов: "Roboto", без засечек;*/
+
+} 
+.wrapper {
+    min-height: 100%;/*(минимальная высота: для правильной растановку подвала и меню)*/
+    display: flex; /*( дисплей: гибкий; для правильной растановку подвала и меню)*/
+    flex-direction: column; /*( направление изгиба: колонна; для правильной растановку подвала и меню)*/
+}
+.header {
+    position: fixed; /*положение: фиксированное;*/
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #1A2238;
+    display: flex; /*дисплей: гибкий;*/
+    justify-content: space-between; /*выравнивание по содержимому: пробел между;*/  
+    box-shadow: 0 3px 6px #da7510 ; /*тень*/
+
+}
+
+    
+
+.logo_div {
+    position: absolute; /* положение: абсолютное; убирает логотип из потока */
+    transition: .5s; /*переход*/
+    display: inline-block; /*дисплей: встроенный блок;*/
+    padding: 0px 0px; /*набивка, заполнение*/
+    text-align: center; /*выравнивание текста: по центру;*/
+    justify-content: center; 
+
+    }
+.logo_div:hover {
+        transform: scale(1.2); /*преобразовать*/
+    }
+
+   
+.menu__list {
+    display: flex; /*дисплей: гибкий; становится в ряд по горизонту*/
+    justify-content: center; 
+    padding: 0 120%;
+}
+ a{
+    display: inline-block; /*дисплей: встроенный блок;делает блочным*/
+    text-decoration: none; /*оформление текста: отсутствует; (уберает подчеркивание)*/
+    color: inherit; /* цвет: унаследованный; (наследовать цвет родителя)*/
+
+}
+
+.header a{
+    padding: 15px 30px;  
+}
+
+
+.menu__list > li{
+    display: block;
+
+    
+}
+.menu__ul__list1{
+    min-width: 200px; /*максимальная ширина*/
+    position: absolute; /*положение: абсолютное;*/
+    z-index: 5; /*z-индекс: 5;(ставит всплывающие подменю под низ, 
+    позволит сделать так чтобы всплывающие меню не путались*/
+    transform-origin: 0 0; /*преобразование-начало координат: (позволяет сворачивающемуся меню сворачиваться правельно) */
+    transform: rotateX(-90deg); /*преобразование: поворот на X (-90 градусов)(сворачивает меню, для красивой анимации)*/
+    transition: 0.7s linear;
+    visibility: hidden; /*видимость: скрытая; (гарантирует что меню будет скрыто)*/
+    opacity: 0; /*непрозрачность (гарантирует что меню будет скрыто)*/
+    
+   
+}
+
+.menu__ul__list1 .menu__ul__list1{
+position: absolute; /*положение: абсолютное;*/
+top: 0; /*верхний (смешает колонки подменю в сторону)*/
+left: 100%; /*левый (смешает колонки подменю в сторону)*/
+transition: 0.5s linear; /*переход: линейный на 3 секунды; (анимация красиво разворачивается меню)*/
+
+}
+.menu__list li:hover > .menu__ul__list1 /* позволяет направленовлиять на li в меню */{
+opacity: 1;
+visibility: visible;
+transform: rotateX(0deg);
+box-shadow: 0 3px 6px #da7510 ; /*тень*/
+
+
+}
+
+.menu__list li:hover {
+    transform: scale(1.2);
+    color: #da7510;
+}
+
+.menu__ul__list1 li{
+    position: relative; /*положение: относительное;*/
+    display: block;
+    transition: 0.8s;
+}
+.menu__ul__list1 a {
+    border-bottom: 1px green;
+    padding: 10px 5px;
+    background-color: #1A2238;
+    display: block ; /* дисплей: блок; выравнивает ширину блоков в сплывающем меню в один размер*/
+color:#da7510;
+}
+
+.menu__list-link{
+white-space: nowrap;
+}
+
+
+.footer {
+    
+    background-color: #151515;
+    padding: 10px 0 0px; /*соответственно растояние от края сверху 50 с низу 32*/
+}
+.footer__menu{
+    
+    display: flex; /* дисплей: гибкий; колонки меню выстроились в столбци на одинаковом растоянии с левой стороны строницы*/
+    justify-content: space-around; /*выровнять-содержимое: пространство-вокруг; колонки растянулись на всю ширину страницы на одинаковое растояние между собой*/
+    margin-bottom: 20px; /* маржа-нижняя: отступ от колонок до нижних иконок*/
+
+}
+
+.footer__menu-title{
+    
+    font-size: 20px; /*размер шривта огловления */
+    font-weight: 600 ; /*жирность текста*/
+    padding-bottom: 5px; /* падинг 20 для верхней (главной строки) h 20 сложится с 20 прописаными для нижних значений и на выходе получится 40px*/   
+
+}
+.footer__menu-item + .footer__menu-item {
+    
+    padding-top: 5px; /*падинг (отступ сверху и с низу. плюс чтобы прошло на все ссылки, а не только на первое значение*/
+    display: flex; /*дисплей: гибкий;*/
+}
+/*li {
+    max-width: 280px; /*задает максимальную ширину, например, чтобы текст переносился на другую строку.*/
+
+.opp {
+    display: flex;                /*поставило иконки по центру */
+    justify-content: center; /*поставило иконки по центру */
+    gap: 8px; /* задало отступ между друг другом (между иконками)*/
+    margin-bottom: 50px; /* отступ снизу между иконками и нижним текстом*/
+    }
+.img  {
+    display: flex;                /*поставило иконки по центру */
+    justify-content: center; /*поставило иконки по центру */
+    gap: 20px; /* задало отступ между друг другом (между иконками)*/
+    padding-top: 5px;
+    list-style-type: none;
+    
+}
+.telegram {
+    padding-top: 5px; /*не понимаю почему первая иконка ниже, решил пока так*/
+}
+.footer__copy {
+    max-width: 800px; /* максимальная ширина для нужного переноса текста*/
+    margin: 0 auto 30px;
+    text-align: center; /*перенесенный текст тоже стал по центру*/
+}
+.copy__nav-list {
+    display: flex; /*выставляет один за одним в горизонтальную строчку, но появились точки как при списке*/
+    justify-content: center; 
+    gap: 40px;
+}
+
+.copi__nav-item {
+    display: flex;  /*убирает точки перед текстом*/
+    justify-content: center;
+}
+
+.opp__item {
+    display: flex;  /* убрало точки когда поставил на li*/
+}
+
+
+.mein{
+    flex-grow: 1; /*сгибаться-расти: (для правильной растановку подвала и меню)*/
+    
+}
+
+.section-main {
+
+
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+.container1{
+    max-width: 500px;
+    margin: 70px 0px 0px;
+}
+.logline{
+    max-width: 400px;
+    text-align: center;
+    font-size: 16px;
+    text-align: justify;
+}
+.div__something{
+
+margin: 20px 0px -50px;
+}
+.container2{
+    margin: 70px 0px 0px; 
+   
+}
+
+.container3{
+    margin: 70px 0px 0px; 
+    text-align: center; /*выравнивание текста: по центру;*/
+}
+.project-groups_p {
+    font-size: 10px; /*размер шрифта:*/
+    font-weight: 700; /*вес шрифта:*/
+}
+.container4{
+    margin: 70px 0px 0px; 
+}
+.social-network__main {
+display: flex; /*выставляет один за одним в горизонтальную строчку, но появились точки как при списке*/
+justify-content: center; 
+gap: 20px;
+margin: 5px 0px 80px; 
+
+}
+
+.section-main li {
+
+
+list-style-type: none;
+}
+.buttons-links-container3__ul li a {
+background-color: #1A2238;
+    padding: 20px;
+    max-width: 400px; /*максимальная ширина*/
+    width: 100%; /* ширина (заложить ширину 430px как главную настройку падинг всегда останица, а в зависимости от текста кнопка гармонично будет его переносить*/
+    display: inline-block; /* дисплей: встроенный блок (делать строчный блочным, чтобы работали все настройки css0*/
+    font-size: 22px; /*размер шрифта*/
+    font-weight: 700; /*толщина шрифта*/
+    box-shadow: 0 3px 6px #da7510 ; /*тень*/
+    transition: .5s; /*переход*/
+}
+
+.buttons-links-container3__ul li a:hover {
+    transform: scale(1.1); /*преобразовать*/
+    color: #da7510 ;
+}
+
+.container2{
+
+}
+
+
+.container2__ul li{
+    margin: 5px 0px 12px; 
+    background-color: #1A2238;
+    padding: 20px;
+    max-width: 220px; /*максимальная ширина*/
+    width: 100%; /* ширина (заложить ширину 430px как главную настройку падинг всегда останица, а в зависимости от текста кнопка гармонично будет его переносить*/
+    display: inline-block; /* дисплей: встроенный блок (делать строчный блочным, чтобы работали все настройки css0*/
+    font-size: 22px; /*размер шрифта*/
+    font-weight: 700; /*толщина шрифта*/
+    box-shadow: 0 3px 6px #da7510 ; /*тень*/
+    transition: .5s; /*переход*/
+}
+
+.container2__ul li:hover {
+    transform: scale(1.1); /*преобразовать*/
+    color: #da7510 ;
+}
+
+
+
+
+.container2 h1{
+    text-align: center; /*выравнивание текста: по центру;*/
+    margin: 0px 0px 40px; 
+}
+
+.container2-0 {
+display: flex; /* дисплей: гибкий; колонки меню выстроились в столбци на одинаковом растоянии с левой стороны строницы*/
+justify-content: space-around; /*выровнять-содержимое: пространство-вокруг; колонки растянулись на всю ширину страницы на одинаковое растояние между собой*/
+margin-bottom: 50px; /* маржа-нижняя: отступ от колонок до нижних иконок*/
+}
+
+.slider div {
+    margin: 0px 0px 0px; 
+}
+
+
+
+
+
+.swiper {
+
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+   
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+

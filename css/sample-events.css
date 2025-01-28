@@ -1,0 +1,376 @@
+/* Сбрасываем стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Базовые стили */
+html, body {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(#1A2238, 30%,#151515) no-repeat;
+    font-size: 22px;
+    font-weight: 400;
+    color: #FFFFF0;
+    font-family: "Roboto", sans-serif;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стили для header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #1A2238;
+    box-shadow: 0 3px 6px #da7510;
+    z-index: 999;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header_inner {
+    height: 70px;
+    position: relative;
+}
+
+/* Стили для меню */
+.menu {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Стили для логотипа */
+.logo_div {
+    position: absolute;
+    left: -150px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .5s;
+}
+
+.logo_div:hover {
+    transform: translateY(-48%);
+}
+
+/* Стили для списка меню */
+.menu__list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    position: relative;
+}
+
+.menu__list > li {
+    position: relative;
+    margin: 0 20px;
+}
+
+/* Стили для выпадающего меню */
+.menu__ul__list1 {
+    min-width: 200px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1A2238;
+    list-style: none;
+    transform-origin: top;
+    transform: rotateX(-90deg);
+    transition: all 1.2s ease;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.menu__ul__list1 .menu__ul__list1 {
+    top: 0;
+    left: 100%;
+    transform-origin: left;
+}
+
+.menu__list li:hover > .menu__ul__list1 {
+    transform: rotateX(0deg);
+    visibility: visible;
+    opacity: 1;
+    box-shadow: 0 3px 6px #da7510;
+}
+
+/* Добавляем специальные стили для меню "Лаборатория №1 для" */
+.class2 {
+    left: 50%;
+    transform-origin: top center;
+    transform: rotateX(-90deg) translateX(-50%);
+}
+
+/* Обновляем стили для hover состояния */
+.menu__list li:hover > .class2 {
+    transform: rotateX(0deg) translateX(-50%);
+    visibility: visible;
+    opacity: 1;
+    box-shadow: 0 3px 6px #da7510;
+}
+
+/* Стили для ссылок в основном меню */
+.menu__list-link {
+    color: #FFFFF0;
+    transition: all 0.3s ease;
+    display: block;
+    transform: translateX(0);
+    padding: 15px 20px;
+}
+
+/* Эффекты при наведении на пункты основного меню */
+.menu__list-item:hover > .menu__list-link {
+    color: #da7510;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+}
+
+/* Обновляем стили для ссылок в выпадающем меню */
+.menu__ul__list1 a {
+    padding: 10px 20px;
+    background-color: #1A2238;
+    color: #da7510;
+    transition: all 0.3s ease;
+    display: block;
+    transform: translateX(0);
+}
+
+/* Эффекты при наведении на пункты выпадающего меню */
+.menu__ul__list1 li:hover > a {
+    color: #FFFFF0;
+    background-color: #da7510;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+}
+
+/* Стили для основного контента */
+.main {
+    padding-top: 70px;
+    flex: 1 1 auto;
+}
+
+/* Стили для секции about-project */
+.about-project {
+    padding: 120px 20px 50px;
+}
+
+.about-project__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-project__title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: #da7510;
+}
+
+.about-project__content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-project__text {
+    flex: 1;
+}
+
+.about-project__text h2 {
+    color: #da7510;
+    margin-bottom: 20px;
+}
+
+.about-project__text p {
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.about-project__text ul {
+    list-style-position: inside;
+    margin-bottom: 30px;
+}
+
+.about-project__text li {
+    margin-bottom: 10px;
+}
+
+.about-project__image {
+    flex: 1;
+    max-width: 500px;
+}
+
+.about-project__image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px #da7510;
+}
+
+/* Стили для карусели */
+.carousel-section {
+    padding: 0;
+    background: rgba(26, 34, 56, 0.5);
+    margin-top: auto;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.swiper {
+    width: 100%;
+    padding: 0;
+}
+
+.swiper-slide {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.swiper-button-prev {
+    left: 5px;
+}
+
+.swiper-button-next {
+    right: 5px;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    background-color: transparent;
+    padding: 0;
+}
+
+.carousel-link {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.swiper-slide:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(218, 117, 16, 0.5);
+}
+
+/* Стили для футера */
+.footer {
+    background-color: #151515;
+    padding: 10px 0 0px;
+    margin-top: auto;
+}
+
+.footer__menu {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer__menu-title {
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+
+.footer__menu-item + .footer__menu-item {
+    padding-top: 5px;
+    display: flex;
+}
+
+.footer__menu-link {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer__menu-link:hover {
+    color: #da7510;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 15px;
+}
+
+.social-icons .footer__menu-link {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.social-icons .footer__menu-link:hover {
+    transform: scale(1.1);
+}
+
+.footer__copy {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+/* Медиа-запросы */
+@media (max-width: 768px) {
+    .about-project__content {
+        flex-direction: column;
+    }
+    
+    .about-project__image {
+        order: -1;
+    }
+}
+
+/* Общие стили */
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+/* Анимации */
+.about-project__content,
+.carousel-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.about-project__content.active,
+.carousel-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel-link.hover img {
+    transform: scale(1.1);
+} 
