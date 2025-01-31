@@ -106,4 +106,90 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.remove('hover');
         });
     });
+
+    // Инициализация мобильного меню
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+    const body = document.body;
+
+    // Создаем оверлей
+    let menuOverlay = document.querySelector('.menu-overlay');
+    if (!menuOverlay) {
+        menuOverlay = document.createElement('div');
+        menuOverlay.className = 'menu-overlay';
+        document.body.appendChild(menuOverlay);
+    }
+
+    function toggleMenu() {
+        menuToggle.classList.toggle('active');
+        menu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        body.classList.toggle('menu-open');
+
+        // Закрываем все открытые подменю при закрытии основного меню
+        if (!menu.classList.contains('active')) {
+            const activeSubmenus = menu.querySelectorAll('.menu__ul__list1.active');
+            const activeItems = menu.querySelectorAll('.menu__list-item.active');
+            activeSubmenus.forEach(submenu => submenu.classList.remove('active'));
+            activeItems.forEach(item => item.classList.remove('active'));
+        }
+    }
+
+    if (menuToggle && menu) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // Обработка подменю
+        const menuItems = document.querySelectorAll('.menu__list-item');
+        menuItems.forEach(item => {
+            const link = item.querySelector('.menu__list-link');
+            const submenu = item.querySelector('.menu__ul__list1');
+            
+            if (link && submenu) {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Закрываем другие подменю того же уровня
+                        const parent = item.parentElement;
+                        const siblings = parent.children;
+                        Array.from(siblings).forEach(sibling => {
+                            if (sibling !== item) {
+                                sibling.classList.remove('active');
+                                const siblingSubmenu = sibling.querySelector('.menu__ul__list1');
+                                if (siblingSubmenu) {
+                                    siblingSubmenu.classList.remove('active');
+                                }
+                            }
+                        });
+
+                        // Переключаем текущее подменю
+                        item.classList.toggle('active');
+                        submenu.classList.toggle('active');
+                    }
+                });
+            }
+        });
+
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', function(e) {
+            if (menu.classList.contains('active') && 
+                !menu.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                toggleMenu();
+            }
+        });
+
+        // Закрытие меню при изменении размера окна
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && menu.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    }
 });
